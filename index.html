@@ -3,974 +3,569 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>これでいいシリーズ | シンプル・低価格な業務効率化ツール</title>
-  <meta name="description" content="業務ツール、これでいい。シンプル・低価格・すぐ使える業務効率化ツールシリーズ by JP.Company">
-  <meta property="og:title" content="これでいいシリーズ | JP.Company">
-  <meta property="og:description" content="高機能すぎて使いこなせない。設定が複雑で始められない。そんな悩みを解決するシンプルな業務ツール。">
-  <meta property="og:type" content="website">
+  <title>これでいいシリーズ | JP.Company</title>
+  <meta name="description" content="業務ツール、これでいい。シンプルで安い業務ツールをつくっています。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: #1a1a2e;
-      line-height: 1.7;
-      overflow-x: hidden;
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #333;
+      line-height: 1.8;
       background: #fff;
+      -webkit-font-smoothing: antialiased;
     }
+    a { color: inherit; }
 
-    /* ===== Utility ===== */
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ===== Header ===== */
+    /* --- header --- */
     .header {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      padding: 14px 24px;
+      border-bottom: 1px solid #eee;
+      padding: 16px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
-    .header-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .header .logo {
+      font-weight: 700;
+      font-size: 15px;
       text-decoration: none;
+      color: #333;
     }
-    .header-logo .brand {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-    }
-    .header-logo .by {
-      font-size: 11px;
-      color: #aaa;
-      font-weight: 500;
-    }
-    .header-nav {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-    }
-    .header-nav a {
-      text-decoration: none;
-      color: #666;
+    .header nav a {
       font-size: 13px;
-      font-weight: 500;
-      transition: color 0.2s;
+      color: #888;
+      text-decoration: none;
+      margin-left: 20px;
     }
-    .header-nav a:hover { color: #667eea; }
+    .header nav a:hover { color: #333; }
 
-    /* ===== Hero ===== */
+    /* --- hero --- */
     .hero {
-      position: relative;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-      color: #fff;
-      text-align: center;
-      padding: 100px 24px 80px;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
-      animation: heroFloat 20s ease-in-out infinite;
-    }
-    @keyframes heroFloat {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      33% { transform: translate(30px, -30px) rotate(1deg); }
-      66% { transform: translate(-20px, 20px) rotate(-1deg); }
-    }
-    .hero-content { position: relative; z-index: 1; }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(4px);
-      padding: 6px 20px;
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 24px;
-      border: 1px solid rgba(255,255,255,0.2);
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 20px 60px;
     }
     .hero h1 {
-      font-size: 48px;
-      font-weight: 900;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.4;
       margin-bottom: 20px;
-      letter-spacing: -1px;
-      line-height: 1.2;
     }
-    .hero h1 span {
-      display: block;
-      font-size: 22px;
-      font-weight: 500;
-      opacity: 0.85;
-      margin-top: 8px;
-      letter-spacing: 0;
-    }
-    .hero-desc {
-      font-size: 17px;
-      opacity: 0.9;
-      max-width: 560px;
-      margin: 0 auto 36px;
-      line-height: 1.8;
-    }
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      color: #667eea;
-      padding: 14px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    }
-    .hero-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(0,0,0,0.2);
-    }
-
-    /* ===== Problem Section ===== */
-    .problem {
-      background: #f8f9fc;
-      padding: 72px 24px;
-    }
-    .problem-title {
-      text-align: center;
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 40px;
-      color: #1a1a2e;
-    }
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .problem-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    }
-    .problem-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin: 0 auto 16px;
-    }
-    .problem-card:nth-child(1) .problem-icon { background: #fee2e2; }
-    .problem-card:nth-child(2) .problem-icon { background: #fef3c7; }
-    .problem-card:nth-child(3) .problem-icon { background: #dbeafe; }
-    .problem-card h3 {
+    .hero .lead {
       font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #1a1a2e;
+      color: #555;
+      margin-bottom: 28px;
     }
-    .problem-card p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.7;
+    .hero .lead strong {
+      color: #333;
+      background: linear-gradient(transparent 60%, #e8d5f5 60%);
     }
-    .problem-arrow {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #667eea;
-      font-weight: 700;
-    }
-    .problem-arrow .arrow-icon {
-      display: block;
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    /* ===== Concept Section ===== */
-    .concept {
-      padding: 72px 24px;
-      background: #fff;
-    }
-    .concept .section-title {
-      text-align: center;
-      font-size: 28px;
-      font-weight: 900;
-      margin-bottom: 12px;
-    }
-    .concept .section-title .accent {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .concept .section-sub {
-      text-align: center;
-      font-size: 15px;
-      color: #888;
-      margin-bottom: 48px;
-    }
-    .concept-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .concept-item {
-      text-align: center;
-      padding: 36px 20px;
-      border-radius: 20px;
-      background: #f8f9fc;
-      transition: transform 0.3s;
-    }
-    .concept-item:hover { transform: translateY(-4px); }
-    .concept-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
-      font-weight: 900;
-      font-size: 18px;
-      margin-bottom: 16px;
-    }
-    .concept-item h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #1a1a2e;
-    }
-    .concept-item p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.7;
-    }
-
-    /* ===== App Section ===== */
-    .apps {
-      padding: 72px 24px;
-      background: #f8f9fc;
-    }
-    .apps .section-title {
-      text-align: center;
-      font-size: 28px;
-      font-weight: 900;
-      margin-bottom: 12px;
-    }
-    .apps .section-sub {
-      text-align: center;
-      font-size: 15px;
-      color: #888;
-      margin-bottom: 48px;
-    }
-    .app-list {
+    .hero .stats {
       display: flex;
-      flex-direction: column;
       gap: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .app-card {
-      display: grid;
-      grid-template-columns: 80px 1fr auto;
-      align-items: center;
-      gap: 24px;
-      background: #fff;
-      border-radius: 20px;
-      padding: 32px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-decoration: none;
-      color: inherit;
-    }
-    .app-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    }
-    .app-icon-wrap {
-      width: 80px;
-      height: 80px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      flex-shrink: 0;
-    }
-    .app-card:nth-child(1) .app-icon-wrap { background: linear-gradient(135deg, #667eea, #764ba2); }
-    .app-card:nth-child(2) .app-icon-wrap { background: linear-gradient(135deg, #f093fb, #f5576c); }
-    .app-card:nth-child(3) .app-icon-wrap { background: linear-gradient(135deg, #4facfe, #00f2fe); }
-    .app-card:nth-child(4) .app-icon-wrap { background: linear-gradient(135deg, #43e97b, #38f9d7); }
-    .app-card:nth-child(5) .app-icon-wrap { background: linear-gradient(135deg, #fa709a, #fee140); }
-    .app-info h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .app-info .app-tagline {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 10px;
-    }
-    .app-info .app-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .app-feature-tag {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 500;
-      background: #f0f0ff;
-      color: #667eea;
-    }
-    .app-meta {
-      text-align: right;
-      flex-shrink: 0;
-    }
-    .app-price {
       font-size: 13px;
-      color: #888;
-      margin-bottom: 4px;
+      color: #999;
     }
-    .app-price strong {
-      font-size: 20px;
-      font-weight: 900;
-      color: #1a1a2e;
-    }
-    .app-price .yen { font-size: 13px; }
-    .app-status {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 50px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-    .status-live {
-      background: #d1fae5;
-      color: #065f46;
-    }
-    .status-soon {
-      background: #fef3c7;
-      color: #92400e;
-    }
-    .app-card .app-arrow {
-      font-size: 20px;
-      color: #ccc;
-      transition: color 0.2s, transform 0.2s;
-    }
-    .app-card:hover .app-arrow {
-      color: #667eea;
-      transform: translateX(4px);
-    }
+    .hero .stats span { white-space: nowrap; }
 
-    /* ===== Pricing Comparison ===== */
-    .pricing {
-      padding: 72px 24px;
-      background: #fff;
-    }
-    .pricing .section-title {
-      text-align: center;
-      font-size: 28px;
-      font-weight: 900;
-      margin-bottom: 12px;
-    }
-    .pricing .section-sub {
-      text-align: center;
-      font-size: 15px;
-      color: #888;
-      margin-bottom: 48px;
-    }
-    .pricing-table {
-      max-width: 700px;
+    /* --- divider --- */
+    .divider {
+      border: none;
+      border-top: 1px solid #eee;
+      max-width: 680px;
       margin: 0 auto;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-    }
-    .pricing-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .pricing-row:last-child { border-bottom: none; }
-    .pricing-head {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
-    }
-    .pricing-head .pricing-cell {
-      font-weight: 700;
-      font-size: 14px;
-    }
-    .pricing-cell {
-      padding: 16px 20px;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .pricing-row:not(.pricing-head):nth-child(odd) {
-      background: #fafbff;
-    }
-    .pricing-cell.app-name {
-      font-weight: 700;
-      justify-content: flex-start;
-    }
-    .pricing-cell .free-tag {
-      display: inline-block;
-      background: #d1fae5;
-      color: #065f46;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 700;
     }
 
-    /* ===== FAQ ===== */
-    .faq {
-      padding: 72px 24px;
-      background: #f8f9fc;
-    }
-    .faq .section-title {
-      text-align: center;
-      font-size: 28px;
-      font-weight: 900;
-      margin-bottom: 48px;
-    }
-    .faq-list {
-      max-width: 720px;
+    /* --- apps --- */
+    .apps {
+      max-width: 680px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      padding: 48px 20px;
     }
-    .faq-item {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-    }
-    .faq-q {
-      padding: 20px 24px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      user-select: none;
-      transition: background 0.2s;
-    }
-    .faq-q:hover { background: #fafbff; }
-    .faq-q .toggle {
-      font-size: 20px;
-      color: #667eea;
-      transition: transform 0.3s;
-      flex-shrink: 0;
-      margin-left: 16px;
-    }
-    .faq-item.open .faq-q .toggle { transform: rotate(45deg); }
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-    }
-    .faq-item.open .faq-a {
-      max-height: 200px;
-      padding: 0 24px 20px;
-    }
-    .faq-a p {
+    .apps > h2 {
       font-size: 14px;
-      color: #666;
-      line-height: 1.8;
-    }
-
-    /* ===== CTA ===== */
-    .cta {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff;
-      text-align: center;
-      padding: 72px 24px;
-    }
-    .cta h2 {
-      font-size: 30px;
-      font-weight: 900;
-      margin-bottom: 16px;
-    }
-    .cta p {
-      font-size: 16px;
-      opacity: 0.9;
+      color: #aaa;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 2px;
       margin-bottom: 32px;
     }
-    .cta-btn {
-      display: inline-flex;
+    .app {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .app:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .app-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .app-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
       align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .app-head h3 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .app-head h3 small {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: #999;
+      margin-top: 2px;
+    }
+    .app-body {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .app-tags {
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
-      background: #fff;
-      color: #667eea;
-      padding: 16px 40px;
-      border-radius: 50px;
+      margin-bottom: 14px;
+    }
+    .tag {
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 1px solid #e0e0e0;
+      color: #666;
+    }
+    .app-link {
+      display: inline-block;
+      font-size: 14px;
+      color: #5b6abf;
       text-decoration: none;
+      font-weight: 700;
+    }
+    .app-link:hover { text-decoration: underline; }
+    .app-price-line {
+      font-size: 13px;
+      color: #999;
+      margin-top: 6px;
+    }
+    .app-price-line .free {
+      color: #2d8659;
+      font-weight: 700;
+    }
+
+    /* --- about --- */
+    .about {
+      background: #fafafa;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+    .about-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+    .about-inner h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .about-inner p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 14px;
+    }
+    .about-points {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .about-point {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .about-point dt {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .about-point dd {
+      font-size: 13px;
+      color: #777;
+    }
+
+    /* --- pricing --- */
+    .pricing {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+    .pricing h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .pricing .pricing-note {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 24px;
+    }
+    .pricing table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .pricing th {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 2px solid #333;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .pricing td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    .pricing td:first-child { font-weight: 700; }
+    .pricing td .free {
+      color: #2d8659;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .pricing td .price-num {
       font-weight: 700;
       font-size: 16px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(0,0,0,0.2);
     }
 
-    /* ===== Footer ===== */
-    .footer {
-      background: #0f0f23;
-      color: #999;
-      padding: 48px 24px 32px;
-    }
-    .footer-inner {
-      max-width: 1080px;
+    /* --- faq --- */
+    .faq {
+      max-width: 680px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 32px;
+      padding: 48px 20px;
+      border-top: 1px solid #eee;
     }
-    .footer-brand .brand {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 18px;
-      font-weight: 900;
-    }
-    .footer-brand p {
-      font-size: 13px;
-      color: #666;
-      margin-top: 8px;
-      line-height: 1.7;
-    }
-    .footer-section h4 {
-      color: #ddd;
-      font-size: 13px;
+    .faq h2 {
+      font-size: 20px;
       font-weight: 700;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      margin-bottom: 24px;
     }
-    .footer-section a {
-      display: block;
-      color: #888;
-      text-decoration: none;
-      font-size: 13px;
-      margin-bottom: 8px;
-      transition: color 0.2s;
+    .faq dl { }
+    .faq dt {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      cursor: pointer;
     }
-    .footer-section a:hover { color: #fff; }
-    .footer-bottom {
-      text-align: center;
-      padding-top: 32px;
-      margin-top: 32px;
-      border-top: 1px solid #1a1a3e;
-      font-size: 12px;
-      color: #555;
-      max-width: 1080px;
-      margin-left: auto;
-      margin-right: auto;
+    .faq dt::before {
+      content: 'Q. ';
+      color: #5b6abf;
+    }
+    .faq dd {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 24px;
+      padding-left: 24px;
     }
 
-    /* ===== Responsive ===== */
-    @media (max-width: 768px) {
-      .header-nav { display: none; }
-      .hero { padding: 72px 20px 56px; }
-      .hero h1 { font-size: 32px; }
-      .hero h1 span { font-size: 17px; }
-      .hero-desc { font-size: 15px; }
-      .problem-grid { grid-template-columns: 1fr; gap: 16px; }
-      .concept-grid { grid-template-columns: 1fr; gap: 16px; }
-      .app-card {
-        grid-template-columns: 60px 1fr;
-        gap: 16px;
-        padding: 20px;
-      }
-      .app-icon-wrap { width: 60px; height: 60px; font-size: 28px; }
-      .app-meta { grid-column: 1 / -1; text-align: left; display: flex; align-items: center; gap: 12px; }
-      .app-card .app-arrow { display: none; }
-      .pricing-cell { padding: 12px 10px; font-size: 12px; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-      .cta h2 { font-size: 24px; }
+    /* --- footer --- */
+    .footer {
+      border-top: 1px solid #eee;
+      padding: 32px 20px;
+      max-width: 680px;
+      margin: 0 auto;
     }
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 26px; }
-      .footer-inner { grid-template-columns: 1fr; }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .footer-brand {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .footer-brand small {
+      display: block;
+      font-weight: 400;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 4px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 12px;
+      color: #999;
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: #333; }
+    .footer-copy {
+      font-size: 11px;
+      color: #ccc;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 24px; }
+      .hero .stats { flex-direction: column; gap: 4px; }
+      .about-points { grid-template-columns: 1fr; }
+      .pricing table { font-size: 13px; }
+      .pricing td, .pricing th { padding: 8px 6px; }
+      .footer-top { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header class="header">
-    <a href="#" class="header-logo">
-      <span class="brand">これでいいシリーズ</span>
-      <span class="by">by JP.Company</span>
-    </a>
-    <nav class="header-nav">
-      <a href="#apps">アプリ一覧</a>
+    <a href="#" class="logo">これでいいシリーズ</a>
+    <nav>
+      <a href="#apps">アプリ</a>
       <a href="#pricing">料金</a>
       <a href="#faq">FAQ</a>
     </nav>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">5つのアプリを公開中</div>
-      <h1>
-        業務ツール、これでいい。
-        <span>シンプル・低価格・すぐ使える業務効率化ツール</span>
-      </h1>
-      <p class="hero-desc">
-        高機能すぎて使いこなせない。設定が複雑で始められない。<br>
-        そんな悩みを「これでいい」で解決します。
-      </p>
-      <a href="#apps" class="hero-cta">アプリを見る &#x2192;</a>
+    <h1>業務ツール、<br>これでいい。</h1>
+    <p class="lead">
+      高くて多機能なSaaSって、結局ほとんどの機能を使わないまま毎月お金だけ払ってませんか。
+      うちは逆のアプローチで、<strong>本当に使う機能だけ残して安くした</strong>ツールをつくってます。
+      全部無料から使えます。
+    </p>
+    <div class="stats">
+      <span>公開中のアプリ: 5つ</span>
+      <span>有料プラン: 月2,980円〜</span>
+      <span>無料プラン: 全アプリ対応</span>
     </div>
   </section>
 
-  <!-- Problem -->
-  <section class="problem">
-    <div class="container">
-      <h2 class="problem-title fade-in">こんなお悩み、ありませんか？</h2>
-      <div class="problem-grid">
-        <div class="problem-card fade-in">
-          <div class="problem-icon">&#x1F635;</div>
-          <h3>機能が多すぎる</h3>
-          <p>大手SaaSは高機能だけど、使うのは全体の10%だけ。残り90%の機能に毎月お金を払っていませんか？</p>
-        </div>
-        <div class="problem-card fade-in">
-          <div class="problem-icon">&#x1F4B8;</div>
-          <h3>価格が高すぎる</h3>
-          <p>1ユーザーあたり月額数千円。チーム全員分となると毎月かなりの出費に。小規模チームには重い負担です。</p>
-        </div>
-        <div class="problem-card fade-in">
-          <div class="problem-icon">&#x23F3;</div>
-          <h3>設定に時間がかかる</h3>
-          <p>導入マニュアルが100ページ。初期設定に1週間。もっと手軽に始めたいのに、スタートラインに立てない。</p>
-        </div>
-      </div>
-      <div class="problem-arrow fade-in">
-        <span class="arrow-icon">&#x2193;</span>
-        これでいいシリーズなら、すべて解決します。
-      </div>
-    </div>
-  </section>
+  <hr class="divider">
 
-  <!-- Concept -->
-  <section class="concept" id="concept">
-    <div class="container">
-      <h2 class="section-title fade-in"><span class="accent">これでいい</span>の3つの約束</h2>
-      <p class="section-sub fade-in">必要十分を、手の届く価格で。</p>
-      <div class="concept-grid">
-        <div class="concept-item fade-in">
-          <div class="concept-num">1</div>
-          <h3>シンプル</h3>
-          <p>本当に必要な機能だけを厳選。複雑な設定は不要で、誰でもすぐに使い始められます。</p>
-        </div>
-        <div class="concept-item fade-in">
-          <div class="concept-num">2</div>
-          <h3>低価格</h3>
-          <p>月額2,980円から。すべてのアプリに無料プランがあるので、まずはお試しから。</p>
-        </div>
-        <div class="concept-item fade-in">
-          <div class="concept-num">3</div>
-          <h3>すぐ使える</h3>
-          <p>アカウント登録から利用開始まで最短3分。クレジットカード不要で始められます。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Apps -->
   <section class="apps" id="apps">
-    <div class="container">
-      <h2 class="section-title fade-in">アプリ一覧</h2>
-      <p class="section-sub fade-in">あなたの業務に合ったツールを見つけてください</p>
-      <div class="app-list">
+    <h2>Apps</h2>
 
-        <!-- App 1: メール2チャットワーク -->
-        <a href="https://mail.monoshare.biz/#/lp" target="_blank" class="app-card fade-in">
-          <div class="app-icon-wrap">&#x2709;&#xFE0F;</div>
-          <div class="app-info">
-            <h3>これでいいメール2チャットワーク</h3>
-            <p class="app-tagline">メールをChatworkに自動転送。受信メールをリアルタイムに届けます。</p>
-            <div class="app-features">
-              <span class="app-feature-tag">IMAP対応</span>
-              <span class="app-feature-tag">リアルタイム転送</span>
-              <span class="app-feature-tag">転送ルール設定</span>
-            </div>
-          </div>
-          <div class="app-meta">
-            <div class="app-price"><span class="free-tag">無料プランあり</span></div>
-            <div class="app-price" style="margin-top:6px"><span class="yen">月額</span> <strong>3,000</strong><span class="yen">円〜</span></div>
-            <div style="margin-top:8px"><span class="app-status status-live">公開中</span></div>
-          </div>
-          <span class="app-arrow">&#x2192;</span>
-        </a>
+    <div class="app">
+      <div class="app-head">
+        <div class="app-icon" style="background:#f0eeff;">&#x2709;&#xFE0F;</div>
+        <h3>メール2チャットワーク<small>メール → Chatwork 自動転送</small></h3>
+      </div>
+      <p class="app-body">
+        受信したメールをChatworkのルームに自動で流します。
+        「このメールアドレスに来たらこのルームに」みたいなルールを設定するだけ。
+        さくらとかGmailとか、IMAP対応してるメールならだいたいいけます。
+      </p>
+      <div class="app-tags">
+        <span class="tag">IMAP対応</span>
+        <span class="tag">転送ルール</span>
+        <span class="tag">リアルタイム</span>
+      </div>
+      <a href="https://mail.monoshare.biz/#/lp" target="_blank" class="app-link">使ってみる &rarr;</a>
+      <div class="app-price-line"><span class="free">無料プランあり</span> / 有料 月3,000円〜</div>
+    </div>
 
-        <!-- App 2: キントーン2チャットワーク -->
-        <a href="https://kintone2chat.vercel.app" target="_blank" class="app-card fade-in">
-          <div class="app-icon-wrap">&#x1F4CB;</div>
-          <div class="app-info">
-            <h3>これでいいキントーン2チャットワーク</h3>
-            <p class="app-tagline">kintoneのレコード更新をChatworkに自動通知。チームの情報共有を加速。</p>
-            <div class="app-features">
-              <span class="app-feature-tag">1分間隔検知</span>
-              <span class="app-feature-tag">複数アプリ対応</span>
-              <span class="app-feature-tag">テンプレート通知</span>
-            </div>
-          </div>
-          <div class="app-meta">
-            <div class="app-price"><span class="free-tag">無料プランあり</span></div>
-            <div class="app-price" style="margin-top:6px"><span class="yen">月額</span> <strong>2,980</strong><span class="yen">円〜</span></div>
-            <div style="margin-top:8px"><span class="app-status status-live">公開中</span></div>
-          </div>
-          <span class="app-arrow">&#x2192;</span>
-        </a>
+    <div class="app">
+      <div class="app-head">
+        <div class="app-icon" style="background:#fff0f5;">&#x1F4CB;</div>
+        <h3>キントーン2チャットワーク<small>kintone更新 → Chatwork 自動通知</small></h3>
+      </div>
+      <p class="app-body">
+        kintoneでレコードが追加・更新されたら、Chatworkに自動で通知。
+        「営業日報が登録されたらチームのルームに投稿」とか、そういうやつです。
+        1分間隔で見に行くので、ほぼリアルタイムで届きます。
+      </p>
+      <div class="app-tags">
+        <span class="tag">1分間隔</span>
+        <span class="tag">複数アプリOK</span>
+        <span class="tag">通知テンプレート</span>
+      </div>
+      <a href="https://kintone2chat.vercel.app" target="_blank" class="app-link">使ってみる &rarr;</a>
+      <div class="app-price-line"><span class="free">無料プランあり</span> / 有料 月2,980円〜</div>
+    </div>
 
-        <!-- App 3: これでいいフォーム -->
-        <a href="#" class="app-card fade-in">
-          <div class="app-icon-wrap">&#x1F4DD;</div>
-          <div class="app-info">
-            <h3>これでいいフォーム</h3>
-            <p class="app-tagline">kintone連携フォームをかんたん作成。URLを共有するだけでデータ収集。</p>
-            <div class="app-features">
-              <span class="app-feature-tag">テンプレート6種</span>
-              <span class="app-feature-tag">AI自動生成</span>
-              <span class="app-feature-tag">通知連携</span>
-            </div>
-          </div>
-          <div class="app-meta">
-            <div class="app-price"><span class="free-tag">無料プランあり</span></div>
-            <div class="app-price" style="margin-top:6px"><span class="yen">月額</span> <strong>2,980</strong><span class="yen">円〜</span></div>
-            <div style="margin-top:8px"><span class="app-status status-live">公開中</span></div>
-          </div>
-          <span class="app-arrow">&#x2192;</span>
-        </a>
+    <div class="app">
+      <div class="app-head">
+        <div class="app-icon" style="background:#eef6ff;">&#x1F4DD;</div>
+        <h3>これでいいフォーム<small>kintone連携の入力フォーム作成</small></h3>
+      </div>
+      <p class="app-body">
+        kintoneのアカウントがない人でもデータ入力できるフォームを作れます。
+        テンプレートから選ぶか、AIに「こんなフォームほしい」って言えば自動生成。
+        URLを渡すだけで外部の人にも入力してもらえます。
+      </p>
+      <div class="app-tags">
+        <span class="tag">テンプレート6種</span>
+        <span class="tag">AI生成</span>
+        <span class="tag">外部共有OK</span>
+      </div>
+      <a href="#" class="app-link">準備中</a>
+      <div class="app-price-line"><span class="free">無料プランあり</span> / 有料 月2,980円〜</div>
+    </div>
 
-        <!-- App 4: サムネイルテストプロ -->
-        <a href="https://yt-thumbnail-abtest.vercel.app" target="_blank" class="app-card fade-in">
-          <div class="app-icon-wrap">&#x1F3AC;</div>
-          <div class="app-info">
-            <h3>Thumb TEST Pro</h3>
-            <p class="app-tagline">YouTubeサムネイルのA/Bテストを自動化。効果を数値で比較・分析。</p>
-            <div class="app-features">
-              <span class="app-feature-tag">最大4パターン</span>
-              <span class="app-feature-tag">統計検定</span>
-              <span class="app-feature-tag">日英対応</span>
-            </div>
-          </div>
-          <div class="app-meta">
-            <div class="app-price"><span class="free-tag">無料プランあり</span></div>
-            <div class="app-price" style="margin-top:6px"><span class="yen">月額</span> <strong>2,980</strong><span class="yen">円〜</span></div>
-            <div style="margin-top:8px"><span class="app-status status-live">公開中</span></div>
-          </div>
-          <span class="app-arrow">&#x2192;</span>
-        </a>
+    <div class="app">
+      <div class="app-head">
+        <div class="app-icon" style="background:#f0fff4;">&#x1F3AC;</div>
+        <h3>Thumb TEST Pro<small>YouTubeサムネイルのA/Bテスト</small></h3>
+      </div>
+      <p class="app-body">
+        サムネイルを2〜4パターン登録して、自動で切り替えながら再生数を比較。
+        「どっちのサムネがクリックされるか」を統計的に判定してくれます。
+        日本語・英語どっちでも使えます。
+      </p>
+      <div class="app-tags">
+        <span class="tag">最大4パターン</span>
+        <span class="tag">統計判定</span>
+        <span class="tag">日本語/英語</span>
+      </div>
+      <a href="https://yt-thumbnail-abtest.vercel.app" target="_blank" class="app-link">使ってみる &rarr;</a>
+      <div class="app-price-line"><span class="free">無料プランあり</span> / 有料 月2,980円〜</div>
+    </div>
 
-        <!-- App 5: ホムツク -->
-        <a href="#" class="app-card fade-in">
-          <div class="app-icon-wrap">&#x26BD;</div>
-          <div class="app-info">
-            <h3>ホムツク</h3>
-            <p class="app-tagline">サッカーチームのホームページを簡単作成。テンプレートを選ぶだけ。</p>
-            <div class="app-features">
-              <span class="app-feature-tag">テンプレート選択</span>
-              <span class="app-feature-tag">ノーコード</span>
-              <span class="app-feature-tag">即日公開</span>
-            </div>
-          </div>
-          <div class="app-meta">
-            <div class="app-price"><span class="free-tag">無料プランあり</span></div>
-            <div class="app-price" style="margin-top:6px"><span class="yen">月額</span> <strong>2,980</strong><span class="yen">円〜</span></div>
-            <div style="margin-top:8px"><span class="app-status status-live">公開中</span></div>
-          </div>
-          <span class="app-arrow">&#x2192;</span>
-        </a>
+    <div class="app">
+      <div class="app-head">
+        <div class="app-icon" style="background:#fffbeb;">&#x26BD;</div>
+        <h3>ホムツク<small>サッカーチームのHP作成</small></h3>
+      </div>
+      <p class="app-body">
+        少年サッカーや社会人チーム向けのホームページをテンプレートで作れます。
+        メンバー一覧、試合予定、写真ギャラリーとか、チームに必要な項目は一通り入ってます。
+      </p>
+      <div class="app-tags">
+        <span class="tag">テンプレート</span>
+        <span class="tag">ノーコード</span>
+      </div>
+      <a href="#" class="app-link">準備中</a>
+      <div class="app-price-line"><span class="free">無料プランあり</span> / 有料 月2,980円〜</div>
+    </div>
 
+  </section>
+
+  <section class="about">
+    <div class="about-inner">
+      <h2>「これでいい」の考えかた</h2>
+      <p>
+        業務ツールって、だいたいが高機能で高価格。
+        でも実際に使うのはごく一部の機能だけだったりします。
+        「これでいいシリーズ」は、その"ごく一部"だけを切り出して、
+        なるべく安く、なるべく簡単に使えるようにしたツール群です。
+      </p>
+      <p>
+        足りない機能があったらすみません。でも月2,980円なので許してください。
+      </p>
+      <div class="about-points">
+        <dl class="about-point">
+          <dt>無料ではじめる</dt>
+          <dd>全アプリに無料プランがあります。カード登録も不要です。</dd>
+        </dl>
+        <dl class="about-point">
+          <dt>すぐ使える</dt>
+          <dd>メールアドレスで登録して、だいたい3分くらいで使い始められます。</dd>
+        </dl>
+        <dl class="about-point">
+          <dt>いつでもやめられる</dt>
+          <dd>契約の縛りはないです。管理画面からいつでも解約できます。</dd>
+        </dl>
+        <dl class="about-point">
+          <dt>ちゃんとサポート</dt>
+          <dd>お問い合わせいただければ、1営業日以内に返信します。</dd>
+        </dl>
       </div>
     </div>
   </section>
 
-  <!-- Pricing -->
   <section class="pricing" id="pricing">
-    <div class="container">
-      <h2 class="section-title fade-in">シンプルな料金体系</h2>
-      <p class="section-sub fade-in">すべてのアプリに無料プランがあります</p>
-      <div class="pricing-table fade-in">
-        <div class="pricing-row pricing-head">
-          <div class="pricing-cell">アプリ名</div>
-          <div class="pricing-cell">無料プラン</div>
-          <div class="pricing-cell">有料プラン</div>
-        </div>
-        <div class="pricing-row">
-          <div class="pricing-cell app-name">メール2チャットワーク</div>
-          <div class="pricing-cell"><span class="free-tag">月5件まで無料</span></div>
-          <div class="pricing-cell"><strong>3,000</strong>円/月〜</div>
-        </div>
-        <div class="pricing-row">
-          <div class="pricing-cell app-name">キントーン2チャットワーク</div>
-          <div class="pricing-cell"><span class="free-tag">1アプリ無料</span></div>
-          <div class="pricing-cell"><strong>2,980</strong>円/月〜</div>
-        </div>
-        <div class="pricing-row">
-          <div class="pricing-cell app-name">これでいいフォーム</div>
-          <div class="pricing-cell"><span class="free-tag">3フォーム無料</span></div>
-          <div class="pricing-cell"><strong>2,980</strong>円/月〜</div>
-        </div>
-        <div class="pricing-row">
-          <div class="pricing-cell app-name">Thumb TEST Pro</div>
-          <div class="pricing-cell"><span class="free-tag">月3回まで無料</span></div>
-          <div class="pricing-cell"><strong>2,980</strong>円/月〜</div>
-        </div>
-        <div class="pricing-row">
-          <div class="pricing-cell app-name">ホムツク</div>
-          <div class="pricing-cell"><span class="free-tag">1サイト無料</span></div>
-          <div class="pricing-cell"><strong>2,980</strong>円/月〜</div>
-        </div>
-      </div>
-    </div>
+    <h2>料金</h2>
+    <p class="pricing-note">全アプリ、無料プランからスタートできます。</p>
+    <table>
+      <thead>
+        <tr>
+          <th>アプリ</th>
+          <th>無料</th>
+          <th>有料</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>メール2チャットワーク</td>
+          <td><span class="free">月5件まで</span></td>
+          <td><span class="price-num">3,000</span>円/月〜</td>
+        </tr>
+        <tr>
+          <td>キントーン2チャットワーク</td>
+          <td><span class="free">1アプリまで</span></td>
+          <td><span class="price-num">2,980</span>円/月〜</td>
+        </tr>
+        <tr>
+          <td>これでいいフォーム</td>
+          <td><span class="free">3フォームまで</span></td>
+          <td><span class="price-num">2,980</span>円/月〜</td>
+        </tr>
+        <tr>
+          <td>Thumb TEST Pro</td>
+          <td><span class="free">月3回まで</span></td>
+          <td><span class="price-num">2,980</span>円/月〜</td>
+        </tr>
+        <tr>
+          <td>ホムツク</td>
+          <td><span class="free">1サイトまで</span></td>
+          <td><span class="price-num">2,980</span>円/月〜</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
-  <!-- FAQ -->
   <section class="faq" id="faq">
-    <div class="container">
-      <h2 class="section-title fade-in">よくある質問</h2>
-      <div class="faq-list">
-        <div class="faq-item fade-in">
-          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-            <span>無料プランに期限はありますか？</span>
-            <span class="toggle">+</span>
-          </div>
-          <div class="faq-a"><p>いいえ、期限はありません。無料プランは制限付きですが、ずっと無料でお使いいただけます。有料プランへのアップグレードも、ダウングレードもいつでも可能です。</p></div>
-        </div>
-        <div class="faq-item fade-in">
-          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-            <span>クレジットカードの登録は必要ですか？</span>
-            <span class="toggle">+</span>
-          </div>
-          <div class="faq-a"><p>無料プランのご利用にクレジットカードは不要です。メールアドレスだけでアカウントを作成し、すぐにお使いいただけます。</p></div>
-        </div>
-        <div class="faq-item fade-in">
-          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-            <span>解約はいつでもできますか？</span>
-            <span class="toggle">+</span>
-          </div>
-          <div class="faq-a"><p>はい、いつでも解約可能です。契約期間の縛りはなく、管理画面からワンクリックで解約できます。日割り返金にも対応しています。</p></div>
-        </div>
-        <div class="faq-item fade-in">
-          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-            <span>サポートはありますか？</span>
-            <span class="toggle">+</span>
-          </div>
-          <div class="faq-a"><p>はい、各アプリのお問い合わせフォームからご連絡いただけます。通常1営業日以内にご返信いたします。</p></div>
-        </div>
-        <div class="faq-item fade-in">
-          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-            <span>「これでいいシリーズ」はどんな会社が運営していますか？</span>
-            <span class="toggle">+</span>
-          </div>
-          <div class="faq-a"><p>株式会社JP.Companyが運営しています。「必要十分を、手の届く価格で」をモットーに、中小企業・個人事業主向けの業務効率化ツールを開発・提供しています。</p></div>
-        </div>
-      </div>
-    </div>
+    <h2>よくある質問</h2>
+    <dl>
+      <dt>無料プランってずっと無料？</dt>
+      <dd>はい、期限なしでずっと無料です。制限はありますが、お金がかかることはありません。</dd>
+
+      <dt>カード登録しないとダメ？</dt>
+      <dd>無料プランならカード不要です。メールアドレスだけで始められます。</dd>
+
+      <dt>途中でやめたくなったら？</dt>
+      <dd>管理画面からいつでも解約できます。年契約とかはないので安心してください。</dd>
+
+      <dt>困ったときは？</dt>
+      <dd>各アプリのお問い合わせから連絡いただければ、1営業日以内に返信します。</dd>
+    </dl>
   </section>
 
-  <!-- CTA -->
-  <section class="cta">
-    <h2 class="fade-in">まずは無料で試してみませんか？</h2>
-    <p class="fade-in">クレジットカード不要。3分で始められます。</p>
-    <a href="#apps" class="cta-btn fade-in">アプリ一覧を見る &#x2192;</a>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
+    <div class="footer-top">
       <div class="footer-brand">
-        <div class="brand">これでいいシリーズ</div>
-        <p>シンプルで低価格な業務効率化ツール。<br>必要十分を、手の届く価格で。</p>
+        これでいいシリーズ
+        <small>株式会社JP.Company</small>
       </div>
-      <div class="footer-section">
-        <h4>アプリ</h4>
-        <a href="https://mail.monoshare.biz/#/lp" target="_blank">メール2チャットワーク</a>
-        <a href="https://kintone2chat.vercel.app" target="_blank">キントーン2チャットワーク</a>
-        <a href="#">これでいいフォーム</a>
+      <div class="footer-links">
+        <a href="https://mail.monoshare.biz/#/lp" target="_blank">メール2CW</a>
+        <a href="https://kintone2chat.vercel.app" target="_blank">kintone2CW</a>
         <a href="https://yt-thumbnail-abtest.vercel.app" target="_blank">Thumb TEST Pro</a>
-        <a href="#">ホムツク</a>
-      </div>
-      <div class="footer-section">
-        <h4>サポート</h4>
-        <a href="#faq">よくある質問</a>
-        <a href="#">お問い合わせ</a>
-      </div>
-      <div class="footer-section">
-        <h4>運営会社</h4>
-        <a href="#">株式会社JP.Company</a>
         <a href="https://www.instagram.com/jp_company_official/" target="_blank">Instagram</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2026 JP.Company Inc. All rights reserved.
-    </div>
+    <div class="footer-copy">&copy; 2026 JP.Company</div>
   </footer>
-
-  <!-- Scroll Animation -->
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
 
 </body>
 </html>
