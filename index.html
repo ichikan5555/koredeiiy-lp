@@ -28,8 +28,6 @@
 
     /* === hero === */
     .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(160deg,#eef2ff 0%,#fdf2f8 35%,#fef9c3 70%,#ecfdf5 100%)}
-    .hero-img{position:absolute;right:-5%;top:50%;transform:translateY(-50%);width:55%;max-width:700px;opacity:.18;z-index:0;animation:heroFloat 8s ease-in-out infinite}
-    @keyframes heroFloat{0%,100%{transform:translateY(-50%) rotate(0deg)}50%{transform:translateY(-53%) rotate(3deg)}}
     .hero-shapes{position:absolute;inset:0;z-index:0;overflow:hidden}
     .hero-shapes .shape{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:float 12s ease-in-out infinite}
     .hero-shapes .s1{width:500px;height:500px;background:#c4b5fd;top:-10%;right:-5%;animation-delay:0s}
@@ -204,7 +202,6 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero">
-    <img src="hero.jpg" alt="" class="hero-img">
     <div class="hero-shapes">
       <div class="shape s1"></div>
       <div class="shape s2"></div>
@@ -252,7 +249,7 @@
 
   <!-- ===== PHOTO BREAK 1 ===== -->
   <div class="photo-break" id="parallax1">
-    <img src="hero.jpg" alt="" class="parallax-img" style="object-position:center center">
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80" alt="" class="parallax-img">
     <div class="overlay"></div>
     <div class="text">
       <h2 class="reveal">本当に使う機能だけ残して、<br>安くした。</h2>
