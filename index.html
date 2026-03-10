@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>シリーズ一覧 | JP.Company</title>
+  <title>これでいいシリーズ | JP.Company</title>
   <meta name="description" content="業務ツール、これでいい。シンプルで安い業務ツールをつくっています。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,6 +103,18 @@
     .app-card .card-link{font-size:13px;font-weight:700;color:#6366f1;display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
     .app-card:hover .card-link{gap:10px}
 
+    /* === coming soon cards === */
+    .app-card.coming-soon{opacity:.55;border-style:dashed;cursor:default}
+    .app-card.coming-soon:hover{transform:none;box-shadow:none;border-color:#ddd}
+    .app-card.coming-soon:hover::before{transform:scaleX(0)}
+    .app-card.coming-soon .card-link{color:#bbb}
+    .app-card.coming-soon:hover .card-link{gap:6px}
+    .app-card.coming-soon .card-tag{background:#f5f5f5;color:#aaa;border-color:#e5e5e5}
+
+    /* === app divider === */
+    .app-divider{grid-column:1/-1;text-align:center;padding:32px 0 8px;color:#bbb;font-size:13px;letter-spacing:1px;display:flex;align-items:center;gap:16px}
+    .app-divider::before,.app-divider::after{content:'';flex:1;height:1px;background:#ddd}
+
     /* === concept === */
     .concept{padding:100px 24px;background:#fff}
     .concept-inner{max-width:900px;margin:0 auto}
@@ -166,7 +178,7 @@
     .footer-links{display:flex;gap:20px;flex-wrap:wrap}
     .footer-links a{font-size:12px;color:#aaa;transition:color .3s}
     .footer-links a:hover{color:#6366f1}
-    .footer-copy{text-align:center;margin-top:32px;font-size:11px;color:#ddd;max-width:1100px;margin-left:auto;margin-right:auto;padding-top:24px;border-top:1px solid #f0f0f0}
+    .footer-copy{text-align:center;margin-top:32px;font-size:11px;color:#999;max-width:1100px;margin-left:auto;margin-right:auto;padding-top:24px;border-top:1px solid #f0f0f0}
 
     /* === responsive === */
     @media(max-width:768px){
@@ -194,9 +206,9 @@
   <header class="header" id="header">
     <a href="#" class="logo">これでいいシリーズ</a>
     <nav>
-      <a href="#apps">Apps</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
+      <a href="#apps">アプリ</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">よくある質問</a>
     </nav>
   </header>
 
@@ -259,8 +271,10 @@
   <!-- ===== APPS ===== -->
   <section class="apps" id="apps">
     <div class="section-label reveal">Products</div>
-    <h2 class="section-title reveal">作品</h2>
+    <h2 class="section-title reveal">アプリ一覧</h2>
     <div class="app-grid">
+
+      <!-- ===== 公開済み 4アプリ ===== -->
 
       <a href="https://mail.monoshare.biz/#/lp" target="_blank" class="app-card reveal-scale">
         <div class="card-icon">&#x2709;&#xFE0F;</div>
@@ -277,22 +291,6 @@
           <span class="card-link">使ってみる <span>&rarr;</span></span>
         </div>
       </a>
-
-      <div class="app-card reveal-scale">
-        <div class="card-icon">&#x1F4CB;</div>
-        <h3>これでいいキントーン2チャットワーク</h3>
-        <div class="card-sub">kintone更新 → Chatwork 通知</div>
-        <p class="card-body">kintoneのレコードが追加・更新されたらChatworkに通知。営業日報の登録をチームに自動共有、とか。1分間隔でほぼリアルタイム。</p>
-        <div class="card-tags">
-          <span class="card-tag">1分間隔</span>
-          <span class="card-tag">複数アプリOK</span>
-          <span class="card-tag">テンプレート通知</span>
-        </div>
-        <div class="card-bottom">
-          <span class="card-price"><span class="free">無料あり</span> / 3,000円〜</span>
-          <span class="card-link">準備中</span>
-        </div>
-      </div>
 
       <a href="https://kinform.monoshare.biz" target="_blank" class="app-card reveal-scale">
         <div class="card-icon">&#x1F4DD;</div>
@@ -342,7 +340,26 @@
         </div>
       </a>
 
-      <div class="app-card reveal-scale">
+      <!-- ===== 準備中 7アプリ ===== -->
+      <div class="app-divider reveal">準備中のアプリ</div>
+
+      <div class="app-card coming-soon reveal-scale">
+        <div class="card-icon">&#x1F4CB;</div>
+        <h3>これでいいキントーン2チャットワーク</h3>
+        <div class="card-sub">kintone更新 → Chatwork 通知</div>
+        <p class="card-body">kintoneのレコードが追加・更新されたらChatworkに通知。営業日報の登録をチームに自動共有、とか。1分間隔でほぼリアルタイム。</p>
+        <div class="card-tags">
+          <span class="card-tag">1分間隔</span>
+          <span class="card-tag">複数アプリOK</span>
+          <span class="card-tag">テンプレート通知</span>
+        </div>
+        <div class="card-bottom">
+          <span class="card-price"><span class="free">無料あり</span> / 3,000円〜</span>
+          <span class="card-link">準備中</span>
+        </div>
+      </div>
+
+      <div class="app-card coming-soon reveal-scale">
         <div class="card-icon">&#x1F500;</div>
         <h3>これでいいSlack2チャットワーク</h3>
         <div class="card-sub">Slack → Chatwork 転送</div>
@@ -357,7 +374,7 @@
         </div>
       </div>
 
-      <div class="app-card reveal-scale">
+      <div class="app-card coming-soon reveal-scale">
         <div class="card-icon">&#x1F4CA;</div>
         <h3>これでいいスプレッドシート2チャットワーク</h3>
         <div class="card-sub">Googleスプレッドシート → Chatwork 通知</div>
@@ -372,7 +389,7 @@
         </div>
       </div>
 
-      <div class="app-card reveal-scale">
+      <div class="app-card coming-soon reveal-scale">
         <div class="card-icon">&#x1F4E2;</div>
         <h3>これでいいキントーン2Slack</h3>
         <div class="card-sub">kintone更新 → Slack 通知</div>
@@ -387,7 +404,7 @@
         </div>
       </div>
 
-      <div class="app-card reveal-scale">
+      <div class="app-card coming-soon reveal-scale">
         <div class="card-icon">&#x1F4E8;</div>
         <h3>これでいいメール2Slack</h3>
         <div class="card-sub">メール → Slack 自動転送</div>
@@ -402,7 +419,7 @@
         </div>
       </div>
 
-      <div class="app-card reveal-scale">
+      <div class="app-card coming-soon reveal-scale">
         <div class="card-icon">&#x1F4AC;</div>
         <h3>これでいいチャットワーク2Slack</h3>
         <div class="card-sub">Chatwork → Slack 転送</div>
@@ -417,7 +434,7 @@
         </div>
       </div>
 
-      <div class="app-card reveal-scale">
+      <div class="app-card coming-soon reveal-scale">
         <div class="card-icon">&#x26BD;</div>
         <h3>これでいいホムツク</h3>
         <div class="card-sub">サッカーチームHP作成</div>
@@ -478,46 +495,19 @@
   <section class="pricing" id="pricing">
     <div class="section-label reveal">Pricing</div>
     <h2 class="section-title reveal">料金</h2>
-    <p class="section-sub reveal">全アプリ、無料プランからスタートできます。</p>
-    <p class="section-note reveal" style="text-align:center;font-size:12px;color:#bbb;margin-bottom:48px">※ アプリ名はすべて「これでいい〇〇」です</p>
+    <p class="section-sub reveal">全アプリ、無料からスタートできます。</p>
     <div class="pricing-table reveal">
       <div class="p-row p-head">
         <div class="p-cell">アプリ</div>
         <div class="p-cell">無料</div>
         <div class="p-cell">有料</div>
       </div>
-      <div class="p-row p-group"><div class="p-cell" style="grid-column:1/4;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6366f1;background:#f5f3ff;font-weight:700">&#x27A1; Chatwork 連携</div></div>
+      <div class="p-row p-group"><div class="p-cell" style="grid-column:1/4;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6366f1;background:#f5f3ff;font-weight:700">&#x27A1; 公開中</div></div>
       <div class="p-row">
-        <div class="p-cell">&#x2709;&#xFE0F; メール → Chatwork</div>
+        <div class="p-cell">&#x2709;&#xFE0F; メール2チャットワーク</div>
         <div class="p-cell"><span class="free">月5件まで</span></div>
         <div class="p-cell"><span class="price">1,000</span>円/月〜</div>
       </div>
-      <div class="p-row">
-        <div class="p-cell">&#x1F4CB; kintone → Chatwork</div>
-        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
-      </div>
-      <div class="p-row">
-        <div class="p-cell">&#x1F500; Slack → Chatwork</div>
-        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
-      </div>
-      <div class="p-row">
-        <div class="p-cell">&#x1F4CA; スプレッドシート → Chatwork</div>
-        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
-      </div>
-      <div class="p-row p-group"><div class="p-cell" style="grid-column:1/4;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6366f1;background:#f5f3ff;font-weight:700">&#x27A1; Slack 連携</div></div>
-      <div class="p-row">
-        <div class="p-cell">&#x1F4E2; kintone → Slack</div>
-        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
-      </div>
-      <div class="p-row">
-        <div class="p-cell">&#x1F4E8; メール → Slack</div>
-        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
-      </div>
-      <div class="p-row">
-        <div class="p-cell">&#x1F4AC; Chatwork → Slack</div>
-        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
-      </div>
-      <div class="p-row p-group"><div class="p-cell" style="grid-column:1/4;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6366f1;background:#f5f3ff;font-weight:700">&#x27A1; その他</div></div>
       <div class="p-row">
         <div class="p-cell">&#x1F4DD; キントーンフォーム</div>
         <div class="p-cell"><span class="free">3フォームまで</span></div>
@@ -533,10 +523,34 @@
         <div class="p-cell"><span class="free">1ヶ月無料</span></div>
         <div class="p-cell"><span class="price">300</span>円/月〜</div>
       </div>
+      <div class="p-row p-group"><div class="p-cell" style="grid-column:1/4;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#999;background:#fafafa;font-weight:700">&#x27A1; 準備中</div></div>
       <div class="p-row">
-        <div class="p-cell">&#x26BD; ホムツク</div>
-        <div class="p-cell"><span class="free">1サイトまで</span></div>
-        <div class="p-cell"><span class="price">2,980</span>円/月〜</div>
+        <div class="p-cell" style="color:#999">&#x1F4CB; キントーン2チャットワーク</div>
+        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
+      </div>
+      <div class="p-row">
+        <div class="p-cell" style="color:#999">&#x1F500; Slack2チャットワーク</div>
+        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
+      </div>
+      <div class="p-row">
+        <div class="p-cell" style="color:#999">&#x1F4CA; スプレッドシート2チャットワーク</div>
+        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
+      </div>
+      <div class="p-row">
+        <div class="p-cell" style="color:#999">&#x1F4E2; キントーン2Slack</div>
+        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
+      </div>
+      <div class="p-row">
+        <div class="p-cell" style="color:#999">&#x1F4E8; メール2Slack</div>
+        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
+      </div>
+      <div class="p-row">
+        <div class="p-cell" style="color:#999">&#x1F4AC; チャットワーク2Slack</div>
+        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
+      </div>
+      <div class="p-row">
+        <div class="p-cell" style="color:#999">&#x26BD; ホムツク</div>
+        <div class="p-cell" style="color:#999;font-size:12px;grid-column:2/4;justify-content:center">準備中</div>
       </div>
     </div>
   </section>
